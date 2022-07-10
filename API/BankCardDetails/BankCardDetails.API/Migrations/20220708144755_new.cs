@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BankCardDetails.API.Migrations
 {
-    public partial class Init : Migration
+    public partial class @new : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,11 +14,11 @@ namespace BankCardDetails.API.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CardHolderName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CardNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ExpiryMonth = table.Column<int>(type: "int", nullable: false),
-                    ExpiryYear = table.Column<int>(type: "int", nullable: false),
-                    CVC = table.Column<int>(type: "int", nullable: false)
+                    CardHolderName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CardNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ExpiryMonth = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ExpiryYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CVC = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -22,6 +22,12 @@ builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddTransient<BankCardService>();
 builder.Services.AddTransient<BankCardRepository>();
 
+builder.Services.AddCors(options => options.AddPolicy(name: "Default",
+    policy =>
+    {
+        policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+    }));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -31,7 +37,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseRouting();
+
+app.UseCors("Default");
+
 app.UseHttpsRedirection();
+
 
 app.UseAuthorization();
 

@@ -17,10 +17,10 @@ namespace BankCardDetails.API.Models
 
         public string CardNumber { get; set; }
 
-        public int ExpiryMonth { get; set; }
+        public string ExpiryMonth { get; set; }
 
-        public int ExpiryYear { get; set; }
+        public string ExpiryYear { get; set; }
 
-        public int CVC { get; set; }
+        public string CVC { get; set; }
     }
 }

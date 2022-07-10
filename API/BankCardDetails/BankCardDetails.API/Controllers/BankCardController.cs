@@ -41,7 +41,7 @@ namespace BankCardDetails.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCard([FromBody] BankCardDto bankCard)
+        public async Task<IActionResult> AddCard(BankCardDto bankCard)
         {
             await _bankCardService.AddCard(bankCard);
             

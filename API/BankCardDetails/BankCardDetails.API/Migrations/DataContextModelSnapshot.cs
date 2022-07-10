@@ -28,21 +28,20 @@ namespace BankCardDetails.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("CVC")
-                        .HasColumnType("int");
+                    b.Property<string>("CVC")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CardHolderName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CardNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ExpiryMonth")
-                        .HasColumnType("int");
+                    b.Property<string>("ExpiryMonth")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ExpiryYear")
-                        .HasColumnType("int");
+                    b.Property<string>("ExpiryYear")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

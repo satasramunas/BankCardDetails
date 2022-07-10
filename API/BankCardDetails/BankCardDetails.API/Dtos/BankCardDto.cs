@@ -18,13 +18,13 @@ namespace BankCardDetails.API.Dtos
         public string CardNumber { get; set; }
 
         [Required]
-        public int ExpiryMonth { get; set; }
+        public string ExpiryMonth { get; set; }
 
         [Required]
-        public int ExpiryYear { get; set; }
+        public string ExpiryYear { get; set; }
 
         [Required]
         [RegularExpression("^[0-9]{3}$")]
-        public int CVC { get; set; }
+        public string CVC { get; set; }
     }
 }
