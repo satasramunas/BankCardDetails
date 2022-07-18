@@ -30,7 +30,7 @@ namespace BankCardDetails.API.Services
             return dtos;
         }
 
-        public async Task<BankCardDto> GetById(Guid id)
+        public async Task<BankCardDto> GetById(int id)
         {
             var bankCard = await _bankCardRepository.GetByIdAsync(id);
 
@@ -53,7 +53,7 @@ namespace BankCardDetails.API.Services
             await _bankCardRepository.UpdateCardAsync(entity);
         }
 
-        public async Task RemoveCard(Guid id)
+        public async Task RemoveCard(int id)
         {
             await _bankCardRepository.RemoveCardAsync(id);
         }

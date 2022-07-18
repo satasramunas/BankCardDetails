@@ -10,21 +10,18 @@ import { Observable } from 'rxjs';
 export class CardDetailService {
 
   baseApiUrl: string = environment.baseApiUrl;
-  private url = 'api/BankCard';
+  private url = '/api/BankCard';
 
   constructor(private http:HttpClient) { }
 
   formData:CardDetail = new CardDetail();
+  card: CardDetail = new CardDetail();
 
   getCardDetails(): Observable<CardDetail[]> {
-    return this.http.get<CardDetail[]>(this.baseApiUrl + '/api/BankCard');
+    return this.http.get<CardDetail[]>(this.baseApiUrl + this.url);
   }
 
-  // postCardDetails(formData: CardDetail): Observable<CardDetail[]>{
-  //   return this.http.post<CardDetail[]>(`${environment.baseApiUrl}/${this.url}`, formData);
-  // }
-
-  postCardDetails(): Observable<CardDetail[]> {
-    return this.http.post<CardDetail[]>(this.baseApiUrl + '/api/BankCard', this.formData);
+  postCardDetails(card: CardDetail): Observable<CardDetail> {
+    return this.http.post<CardDetail>(this.baseApiUrl + this.url, card);
   }
 }

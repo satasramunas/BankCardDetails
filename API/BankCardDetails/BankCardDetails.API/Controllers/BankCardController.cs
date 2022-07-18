@@ -27,8 +27,8 @@ namespace BankCardDetails.API.Controllers
         }
 
         [HttpGet]
-        [Route("{id:guid}")]
-        public async Task<IActionResult> GetById([FromRoute] Guid id)
+        [Route("{id}")]
+        public async Task<IActionResult> GetById([FromRoute] int id)
         {
             try
             {
@@ -57,8 +57,8 @@ namespace BankCardDetails.API.Controllers
         }
 
         [HttpDelete]
-        [Route("{id:guid}")]
-        public async Task<IActionResult> RemoveCard(Guid id)
+        [Route("{id}")]
+        public async Task<IActionResult> RemoveCard(int id)
         {
             try
             {

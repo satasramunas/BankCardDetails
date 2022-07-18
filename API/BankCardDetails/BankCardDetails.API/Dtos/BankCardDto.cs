@@ -9,7 +9,7 @@ namespace BankCardDetails.API.Dtos
 {
     public class BankCardDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string CardHolderName { get; set; }

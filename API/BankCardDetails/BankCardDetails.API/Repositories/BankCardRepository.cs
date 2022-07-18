@@ -23,7 +23,7 @@ namespace BankCardDetails.API.Repositories
             return await _dataContext.BankCards.ToListAsync();
         }
 
-        public async Task<BankCard> GetByIdAsync(Guid id)
+        public async Task<BankCard> GetByIdAsync(int id)
         {
             var bankCard = await _dataContext.BankCards.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -36,7 +36,7 @@ namespace BankCardDetails.API.Repositories
 
         public async Task AddCardAsync(BankCard bankCard)
         {
-            bankCard.Id = Guid.NewGuid();
+            //bankCard.Id = Guid.NewGuid();
             _dataContext.BankCards.Add(bankCard);
             await _dataContext.SaveChangesAsync();
         }
@@ -47,7 +47,7 @@ namespace BankCardDetails.API.Repositories
             await _dataContext.SaveChangesAsync();
         }
 
-        public async Task RemoveCardAsync(Guid id)
+        public async Task RemoveCardAsync(int id)
         {
             var bankCard = await GetByIdAsync(id);
 

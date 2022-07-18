@@ -1,5 +1,5 @@
 export class CardDetail {
-    Id:string = '';
+    Id:number = 0;
     cardHolderName:string = '';
     cardNumber:string = '';
     expiryMonth:string = '';

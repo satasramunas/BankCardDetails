@@ -11,7 +11,7 @@ namespace BankCardDetails.API.Models
     public class BankCard
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public string CardHolderName { get; set; }
 

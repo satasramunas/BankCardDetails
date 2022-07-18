@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CardDetail } from '../shared/card-detail.model';
+import { CardDetailService } from '../shared/card-detail.service';
 
 @Component({
   selector: 'app-card-details',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardDetailsComponent implements OnInit {
 
-  constructor() { }
+  list: CardDetail[];
+
+  constructor(public service:CardDetailService) { }
 
   ngOnInit(): void {
+    this.service.getCardDetails()
+    .subscribe({
+      next: (list) => {
+        this.list = list;
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    });
   }
 
 }
