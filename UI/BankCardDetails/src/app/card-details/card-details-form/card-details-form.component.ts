@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CardDetail } from 'src/app/shared/card-detail.model';
 import { CardDetailService } from 'src/app/shared/card-detail.service';
+import { servicesVersion } from 'typescript';
+import { CardDetailsComponent } from '../card-details.component';
 
 @Component({
   selector: 'app-card-details-form',
@@ -12,28 +14,19 @@ import { CardDetailService } from 'src/app/shared/card-detail.service';
 export class CardDetailsFormComponent implements OnInit {
   @Input() card?: CardDetail;
 
-  cardBank: CardDetail = new CardDetail();
+  cardBank: CardDetail = this.service.formData;
 
-  constructor(public service:CardDetailService,
+  constructor(public service:CardDetailService, component:CardDetailsComponent,
     private toastr:ToastrService) { } // dependency injection
 
   ngOnInit(): void {
-    // this.service.getCardDetails()
-    // .subscribe({
-    //   next: (CardDetail) => {
-    //     console.log(CardDetail);
-    //   },
-    //   error: (response) => {
-    //     console.log(response);
-    //   }
-    // });
   }
 
   onSubmit(form: NgForm) {
-    this.service.postCardDetails(this.cardBank)
+    this.service.postCardDetails(this.service.formData)
     .subscribe({
-      next: (card1) => {
-        console.log(card1);
+      next: (cardBank) => {
+        console.log(cardBank);
         this.resetForm(form);
         this.toastr.success('Submitted successfully', 'Bank Card Register');
       },
@@ -47,5 +40,6 @@ export class CardDetailsFormComponent implements OnInit {
     form.form.reset();
     this.service.formData = new CardDetail();
   }
+
 
 }

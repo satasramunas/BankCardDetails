@@ -11,19 +11,19 @@ namespace BankCardDetails.API.Dtos
     {
         public int Id { get; set; }
 
-        [Required]
+        //[Required]
         public string CardHolderName { get; set; }
 
-        [Required]
+        //[Required]
         public string CardNumber { get; set; }
 
-        [Required]
+        //[Required]
         public string ExpiryMonth { get; set; }
 
-        [Required]
+        //[Required]
         public string ExpiryYear { get; set; }
 
-        [Required]
+        //[Required]
         [RegularExpression("^[0-9]{3}$")]
         public string CVC { get; set; }
     }

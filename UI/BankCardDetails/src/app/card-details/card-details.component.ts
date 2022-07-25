@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardDetail } from '../shared/card-detail.model';
 import { CardDetailService } from '../shared/card-detail.service';
+import { CardDetailsFormComponent } from './card-details-form/card-details-form.component';
 
 @Component({
   selector: 'app-card-details',

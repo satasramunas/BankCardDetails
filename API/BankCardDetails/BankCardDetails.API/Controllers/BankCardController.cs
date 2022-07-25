@@ -68,7 +68,7 @@ namespace BankCardDetails.API.Controllers
             }
             catch (Exception)
             {
-                return NotFound("Item not found");
+                return NotFound("Card not found");
             }
         }
     }

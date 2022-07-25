@@ -15,13 +15,13 @@ export class CardDetailService {
   constructor(private http:HttpClient) { }
 
   formData:CardDetail = new CardDetail();
-  card: CardDetail = new CardDetail();
+  list: CardDetail[];
 
   getCardDetails(): Observable<CardDetail[]> {
     return this.http.get<CardDetail[]>(this.baseApiUrl + this.url);
   }
 
-  postCardDetails(card: CardDetail): Observable<CardDetail> {
-    return this.http.post<CardDetail>(this.baseApiUrl + this.url, card);
+  postCardDetails(formData: CardDetail): Observable<CardDetail> {
+    return this.http.post<CardDetail>(this.baseApiUrl + '/api/BankCard', formData);
   }
 }
