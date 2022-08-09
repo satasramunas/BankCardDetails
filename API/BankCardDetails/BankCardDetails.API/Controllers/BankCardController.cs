@@ -28,6 +28,7 @@ namespace BankCardDetails.API.Controllers
 
         [HttpGet]
         [Route("{id}")]
+        [ActionName("GetCard")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
             try
@@ -41,7 +42,7 @@ namespace BankCardDetails.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCard(BankCardDto bankCard)
+        public async Task<IActionResult> AddCard([FromBody] BankCardDto bankCard)
         {
             await _bankCardService.AddCard(bankCard);
             
@@ -49,7 +50,8 @@ namespace BankCardDetails.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateCard([FromBody] BankCardDto bankCard)
+        [Route("{id}")]
+        public async Task<IActionResult> UpdateCard([FromRoute] int id, [FromBody] BankCardDto bankCard)
         {
             await _bankCardService.UpdateCard(bankCard);
 
@@ -58,7 +60,7 @@ namespace BankCardDetails.API.Controllers
 
         [HttpDelete]
         [Route("{id}")]
-        public async Task<IActionResult> RemoveCard(int id)
+        public async Task<IActionResult> RemoveCard([FromRoute] int id)
         {
             try
             {

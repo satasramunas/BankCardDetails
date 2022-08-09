@@ -1,4 +1,52 @@
 <div class="container">
-    <app-card-details></app-card-details>
+    <h1 class="display-4 text-center">Bank Card Register</h1>
+
+    <div class="cards-container">
+        <div class="cards-form">
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label>CARD HOLDER NAME</label>
+                    <input class="form-control form-control-lg" placeholder="Full Name"
+                    name="cardHolderName" [(ngModel)]="card.cardHolderName">
+                </div>
+                <div class="form-group">
+                    <label>CARD NUMBER</label>
+                    <input class="form-control form-control-lg" placeholder="16 Digit Card Number"
+                    name="cardNumber" [(ngModel)]="card.cardNumber">
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-5">
+                        <label>EXPIRY MONTH</label>
+                        <input class="form-control form-control-lg" placeholder="Expiry Month"
+                        name="expiryMonth" [(ngModel)]="card.expiryMonth">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>EXPIRY YEAR</label>
+                        <input class="form-control form-control-lg" placeholder="Expiry Year"
+                        name="expiryYear" [(ngModel)]="card.expiryYear">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>CVC</label>
+                        <input type="password" class="form-control form-control-lg" placeholder="Security Code"
+                        name="cvc" [(ngModel)]="card.cvc">
+                    </div>
+                </div>
+                <div class="form-group d-grid gap-2">
+                    <button class="btn btn-info btn-lg btn-block">SUBMIT</button>
+                </div>
+            </form>
+        </div>
+        <div class="cards-grid">
+            <div class="card-row" *ngFor="let card of cards">
+                <div class="card-row-details">
+                    <span>{{ card.cardHolderName }}</span>
+                    <span>{{ card.cardNumber }}</span>
+                </div>
+                <div class="card-row-action">
+                    <a><i class="far fa-trash-alt fa-lg text-danger"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>

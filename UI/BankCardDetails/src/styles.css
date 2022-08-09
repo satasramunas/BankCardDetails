@@ -1,4 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+.cards-container {
+  margin: 0;
+  display: flex;
+}
+
+.cards-form {
+  width: 50%;
+  padding: 2em;
+}
+
+.cards-grid {
+  width: 50%;
+  padding: 2em;
+}
+
+.card-row {
+  width: 100%;
+  display: flex;
+}
+
+.card-row-details {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 0.2em;
+  cursor: pointer;
+}
+
+.card-row-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-row-action a {
+  cursor: pointer;
+}
+
 .form-group label {
     color: grey;
   }
@@ -28,4 +67,11 @@
   /*for invalid form controls*/
   input.invalid {
     border-color: red;
+  }
+
+  @media (max-width: 780px) {
+    .cards-grid {
+      display: block;
+      background-color: aqua;
+    }
   }
