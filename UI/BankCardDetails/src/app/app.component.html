@@ -7,28 +7,32 @@
                 <div class="form-group">
                     <label>CARD HOLDER NAME</label>
                     <input class="form-control form-control-lg" placeholder="Full Name"
-                    name="cardHolderName" [(ngModel)]="card.cardHolderName">
+                    name="cardHolderName" [(ngModel)]="card.cardHolderName" required>
                 </div>
                 <div class="form-group">
                     <label>CARD NUMBER</label>
                     <input class="form-control form-control-lg" placeholder="16 Digit Card Number"
-                    name="cardNumber" [(ngModel)]="card.cardNumber">
+                    name="cardNumber" [(ngModel)]="card.cardNumber"
+                    required maxlength="16" minlength="16">
                 </div>
                 <div class="row">
                     <div class="form-group col-md-5">
                         <label>EXPIRY MONTH</label>
                         <input class="form-control form-control-lg" placeholder="Expiry Month"
-                        name="expiryMonth" [(ngModel)]="card.expiryMonth">
+                        name="expiryMonth" [(ngModel)]="card.expiryMonth"
+                        required maxlength="2" minlength="2">
                     </div>
                     <div class="form-group col-md-4">
                         <label>EXPIRY YEAR</label>
                         <input class="form-control form-control-lg" placeholder="Expiry Year"
-                        name="expiryYear" [(ngModel)]="card.expiryYear">
+                        name="expiryYear" [(ngModel)]="card.expiryYear"
+                        required maxlength="2" minlength="2">
                     </div>
                     <div class="form-group col-md-3">
                         <label>CVC</label>
                         <input type="password" class="form-control form-control-lg" placeholder="Security Code"
-                        name="cvc" [(ngModel)]="card.cvc">
+                        name="cvc" [(ngModel)]="card.cvc"
+                        required maxlength="3" minlength="3">
                     </div>
                 </div>
                 <div class="form-group d-grid gap-2">
@@ -38,12 +42,12 @@
         </div>
         <div class="cards-grid">
             <div class="card-row" *ngFor="let card of cards">
-                <div class="card-row-details">
+                <div class="card-row-details" (click)="populateForm(card)">
                     <span>{{ card.cardHolderName }}</span>
                     <span>{{ card.cardNumber }}</span>
                 </div>
                 <div class="card-row-action">
-                    <a><i class="far fa-trash-alt fa-lg text-danger"></i></a>
+                    <a (click)="deleteCard(card.id)"><i class="far fa-trash-alt fa-lg text-danger"></i></a>
                 </div>
             </div>
         </div>

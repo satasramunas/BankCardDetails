@@ -39,7 +39,41 @@ export class AppComponent implements OnInit{
   }
 
   onSubmit () {
-    this.cardsService.addCard(this.card)
+    if (this.card.id === 0) {
+      this.cardsService.addCard(this.card)
+      .subscribe(
+        response => {
+          this.getAllCards();
+          this.card = {
+            id: 0,
+            cardHolderName: '',
+            cardNumber: '',
+            expiryMonth: '',
+            expiryYear: '',
+            cvc: ''
+          };
+        }
+      );
+    } else {
+      this.updateCard(this.card);
+  }
+}
+
+  deleteCard(id: number) {
+    this.cardsService.deleteCard(id)
+    .subscribe(
+      response => {
+        this.getAllCards();
+      }
+    );
+  }
+
+  populateForm(card: Card) {
+    this.card = card;
+  }
+
+  updateCard(card: Card) {
+    this.cardsService.updateCard(card)
     .subscribe(
       response => {
         this.getAllCards();
@@ -52,6 +86,6 @@ export class AppComponent implements OnInit{
           cvc: ''
         };
       }
-    )
+    );
   }
 }
